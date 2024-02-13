@@ -255,15 +255,17 @@ const animationTimeline = () => {
       y: 30,
       zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(
-      ".last-smile",
-      0.5,
-      {
-        rotation: 90,
-      },
-      "+=1"
-    );
+      .from(".nine", 0.7, ideaTextTrans)
+    .to(".nine", 0.7, ideaTextTransLeave, "+=1.5")
+    // .staggerFrom(".ten p", 1, ideaTextTrans, 1.2)
+    // .to(
+    //   ".last-smile",
+    //   0.5,
+    //   {
+    //     rotation: 90,
+    //   },
+    //   "+=1"
+    // );
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
@@ -275,7 +277,6 @@ const animationTimeline = () => {
   });
 };
 
-// Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
     .then((data) => data.json())
@@ -286,6 +287,11 @@ const fetchData = () => {
             document
               .getElementById(customData)
               .setAttribute("src", data[customData]);
+          } else if (customData.startsWith("wishText")) {
+            // Update wishText elements
+            const wishTextIndex = customData.replace("wishText", "");
+            document.getElementById(`wishText`).innerText =
+              data[customData];
           } else {
             document.getElementById(customData).innerText = data[customData];
           }

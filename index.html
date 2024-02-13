@@ -13,6 +13,12 @@
   </head>
 
   <body>
+             <div>
+         <audio autoplay loop id="backgroundMusic" style="display: none;">
+        <source src="sound/song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
     <div class="container">
       <div class="one">
         <h1 class="one">
@@ -49,7 +55,7 @@
         </p>
       </div>
       <div class="six">
-        <img src="img/vector.jpg" alt="" class = "girl-dp" id="imagePath" />
+        <img src="img/vector.jpg" alt="" class = "girl-dp triangle-image"  id="imagePath" />
         <div class="wish">
           <h3 class="wish-hbd">Happy Valentine's Day Gorgeous</h3>
           <h5 id="wishText">kuch kuch</h5>
@@ -123,15 +129,40 @@
           <circle cx="20" cy="20" r="20" />
         </svg>
       </div>
-      <div class="nine">
+      </div>
+      <div class="ten">
         <p>Okay, now come back and tell me if you liked it.</p>
         <p id="replay">Or click, if you want to watch it again.</p>
         <p class="last-smile">:)</p>
       </div>
-    </div>
+      <script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the audio element
+    var backgroundMusic = document.getElementById("backgroundMusic");
+
+    // Play the audio
+    backgroundMusic.play();
+  });
+</script>
+      <script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the audio element
+    var video = document.getElementById("nine");
+
+    // Play the audio
+    backgroundMusic.stop();
+    video.play();
+  });
+</script>
+
   </body>
 
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.rawgit.com/twilio/twilio.js/gh-pages/releases/1.11.1/twilio.min.js"></script>
+
   <script type="text/babel" src="script/main.js"></script>
-</html>
+</html> 
